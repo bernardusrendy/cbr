@@ -1,0 +1,36 @@
+[CATATAN PENTING]
+Karena telah digunakan tiga algoritma machine learning, terdapat tiga jenis train.py dan tiga jenis classifier.py.
+Sesuai yang telah dijelaskan pada laporan, algoritma yang terbaik adalah Inception V3.
+Terdapat struktur folder sebagai berikut:
+	./
+	--------dataset_two_class/
+		--------test/
+			--------Non/ -> Tempat memasukkan data uji untuk bangunan, pohon, batu, dan gedung dalam itb yang bukan oktagon (sama seperti struktur data latih saat pengerjaan tugas)
+			--------Oktagon/ -> Tempat memasukkan data uji untuk bangunan yang merupakan oktagon (berupa foto jarak jauh dan close up)
+		--------train/
+			--------Non/ -> Tempat memasukkan data latih untuk bangunan, pohon, batu, dan gedung dalam itb yang bukan oktagon (sama seperti struktur data latih saat pengerjaan tugas)
+			--------Oktagon/ -> Tempat memasukkan data latih untuk bangunan yang merupakan oktagon (berupa foto jarak jauh dan close up)
+		--------valid/
+			--------Test/ -> Tempat memasukkan satu gambar asing yang ingin ditentukan, pastikan nama gambar adalah "file_asing.jpg"
+	--------weights/ -> letak memasukkan weights yang sudah di train, untuk Inception bernama "Two_Class.hdf5" untuk VGG bernama "Two_Class_VGG16.hdf5"
+	train_CNN.py -> Program pelatih CNN
+	train_SVM.py -> Program pelatih SVM
+	train_InceptionV3.py -> Program pelatih Transfer Learning InceptionV3 -> Hasil disimpan di weights
+	classify_InceptionV3.py -> Program untuk menggunakan InceptionV3, pastikan data uji sudah terdapat didalam folder "./dataset_two_class/valid/Test/" dengan nama "file_asing.jpg"
+	inception_features_valid_2_class.npz -> File hasil classify_InceptionV3.py untuk menentukan fitur hasil ekstraksi InceptionV3, dapat diabaikan
+	classify.py -> Program Klasifikasi Utama (InceptionV3)
+	train.py -> Program Latih Utama (InceptionV3)
+	
+[LANGKAH PENGGUNAAN "train.py"]
+1. Masukkan seluruh data uji dan data latih kedalam folder yang bersesuaian 
+	(data uji Non oktagon pada "./dataset_two_class/test/Non",
+	data uji oktagon pada "./dataset_two_class/test/Oktagon",
+	data latih Non oktagon pada "./dataset_two_class/train/Non",
+	data latih Oktagon pada "./dataset_two_class/train/Oktagon")
+2. Jalankan "train.py", tunggu hingga program selesai (akan membutuhkan waktu sekitar 40 menit pada dataset total 1758)
+3. Masukkan gambar yang ingin diidentifikasi (file asing) ke dalam folder "./dataset_two_class/valid/Test/", pastikan nama file adalah "file_asing.jpg"
+
+[LANGKAH PENGGUNAAN "classify.py"]
+4. Jalankan "classify.py"
+5. Hasil keluar dalam bentuk tulisan dalam command prompt
+		
